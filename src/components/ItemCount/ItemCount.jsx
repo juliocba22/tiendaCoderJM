@@ -14,7 +14,7 @@ const stock = 5;
     console.log(count);
   return (
     <div>
-      <button b={2} colorScheme='blue' onClick={decrementar}>-</button>
+      <button b={2}  colorScheme='blue' onClick={decrementar}>-</button>
       {count}
       <button colorScheme='blue' onClick={incrementar}>+</button>
     </div>

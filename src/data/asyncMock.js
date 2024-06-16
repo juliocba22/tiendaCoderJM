@@ -1,100 +1,75 @@
-const productos = [
-    {
-      id: 1,
-      nombre: "Camiseta Básica",
-      precio: 19.99,
-      categoria: "Camisetas",
-      stock: 50,
-      descripcion: "Camiseta de algodón 100% con cuello redondo.",
-      img: "https://images.pexels.com/photos/1660809/pexels-photo-1660809.jpeg"
-    },
-    {
-      id: 2,
-      nombre: "Pantalones Vaqueros",
-      precio: 49.99,
-      categoria: "Pantalones",
-      stock: 30,
-      descripcion: "Pantalones vaqueros de corte ajustado y color azul oscuro.",
-      img: "https://images.pexels.com/photos/804197/pexels-photo-804197.jpeg"
-    },
-    {
-      id: 3,
-      nombre: "Sudadera con Capucha",
-      precio: 39.99,
-      categoria: "Sudaderas",
-      stock: 20,
-      descripcion: "Sudadera con capucha y bolsillo delantero, color gris.",
-      img: "https://images.pexels.com/photos/1000445/pexels-photo-1000445.jpeg"
-    },
-    {
-      id: 4,
-      nombre: "Vestido Floral",
-      precio: 59.99,
-      categoria: "Vestidos",
-      stock: 15,
-      descripcion: "Vestido con estampado floral y cintura ajustable.",
-      img: "https://images.pexels.com/photos/1027130/pexels-photo-1027130.jpeg"
-    },
-    {
-      id: 5,
-      nombre: "Chaqueta de Cuero",
-      precio: 99.99,
-      categoria: "Chaquetas",
-      stock: 10,
-      descripcion: "Chaqueta de cuero sintético, color negro.",
-      img: "https://images.pexels.com/photos/1837593/pexels-photo-1837593.jpeg"
-    },
-    {
-      id: 6,
-      nombre: "Camisa de Cuadros",
-      precio: 29.99,
-      categoria: "Camisas",
-      stock: 25,
-      descripcion: "Camisa de cuadros de manga larga, color rojo y negro.",
-      img: "https://images.pexels.com/photos/375582/pexels-photo-375582.jpeg"
-    },
-    {
-      id: 7,
-      nombre: "Falda Plisada",
-      precio: 34.99,
-      categoria: "Faldas",
-      stock: 18,
-      descripcion: "Falda plisada de longitud media, color azul marino.",
-      img: "https://images.pexels.com/photos/4450341/pexels-photo-4450341.jpeg"
-    },
-    {
-      id: 8,
-      nombre: "Suéter de Lana",
-      precio: 44.99,
-      categoria: "Suéteres",
-      stock: 22,
-      descripcion: "Suéter de lana merina, color beige.",
-      img: "https://images.pexels.com/photos/1813504/pexels-photo-1813504.jpeg"
-    },
-    {
-      id: 9,
-      nombre: "Parka Impermeable",
-      precio: 89.99,
-      categoria: "Abrigos",
-      stock: 12,
-      descripcion: "Parka impermeable con capucha, color verde oliva.",
-      img: "https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg"
-    },
-    {
-      id: 10,
-      nombre: "Zapatillas Deportivas",
-      precio: 69.99,
-      categoria: "Calzado",
-      stock: 35,
-      descripcion: "Zapatillas deportivas para correr, color blanco.",
-      img: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg"
-    }
-  ];
-export  const getProducts=()=>{
-    return new Promise((res)=>{
-        setTimeout(() => {
-            res(productos);
-        }, 2000);
-    })
-}
-  
+export const productos = [
+  {
+    id: 1,
+    nombre: "Remera Studio Ghibli Miyazaki",
+    precio: 8500,
+    categoria: "Remeras",
+    stock: 5,
+    descripcion:
+      "Las remeras son 100% algodón peinado 24/1 (Premium).No se deforman, ni pierden el color.",
+    img: "https://acdn.mitiendanube.com/stores/819/313/products/208h1-add4872d6d76a1ea8716530734948442-1024-1024.jpg",
+  },
+  {
+    id: 2,
+    nombre: "Buzo El viaje de Chihiro",
+    precio: 13000,
+    categoria: "Buzos",
+    stock: 5,
+    descripcion:
+      "Buzo Unisex 100% Algodón. Cuello Redondo con refuerzo en los cuellos y mangas",
+    img: "https://acdn.mitiendanube.com/stores/819/313/products/161bg1-1783beadd7dedcbe0b16824436734220-1024-1024.webp",
+  },
+  {
+    id: 3,
+    nombre: "Pijama Totoro",
+    precio: 8900,
+    categoria: "Pijamas",
+    stock: 5,
+    descripcion:
+      "Los Pants son de lycra y modal calidad premium, cómodos, súper suaves, livianos y frescos para usarlos tranqui en casa o dónde quieras. Tienen cintura elastizada con con cordón regulable para ajustarlos hasta estar cómodos. La tela no encoje, los estampados no decoloran y es por eso que todas nuestras prendas cuentan con garantía de estampado.",
+    img: "https://peluchemania.fr/cdn/shop/files/H7c880b4462a64fe78a88816f7d14f94eF.jpg?v=1696758933",
+  },
+  {
+    id: 4,
+    nombre: "Remera Mononoke Poster",
+    precio: 9900,
+    categoria: "Remeras",
+    stock: 5,
+    descripcion:
+      "Los remerones son 100% algodón peinado 24/1 (Premium).No se deforman, ni pierden el color.",
+    img: "https://acdn.mitiendanube.com/stores/819/313/products/1063h1-34d306afad7d74bc7f16530740622289-1024-1024.webp",
+  },
+  {
+    id: 5,
+    nombre: "Zapatillas Studio Ghibli",
+    precio: 14900,
+    categoria: "Zapatillas",
+    stock: 5,
+    descripcion:
+      "Zapatilla de lona reforzada. Pintada a mano con pintura de calidad.",
+    img: "https://ghibli-merch.com/wp-content/uploads/2022/11/Ghibli-Characters-Light-Blue-AJ-Shoes.jpg",
+  },
+];
+
+
+export const getProductById = (id) => {
+  return new Promise((resolve, reject) => {
+      setTimeout(() => {
+         console.log("LLEGO" + id);
+          const product = productos.find((prod) => prod.id === parseInt(id));
+          if (product) {
+              resolve(product);
+          } else {
+              reject(new Error(`Producto con id ${id} no encontrado`));
+          }
+      }, 1000); // Simulamos una pequeña demora de 1 segundo
+  });
+};
+
+export const getProducts = () => {
+  return new Promise((resolve) => {
+      setTimeout(() => {
+          resolve(productos);
+      }, 2000);
+  });
+};

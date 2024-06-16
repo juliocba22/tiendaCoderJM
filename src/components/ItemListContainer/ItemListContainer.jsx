@@ -1,6 +1,6 @@
-import { Heading, Flex, Box } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
-import './ItemListContainer.css';
+import { Box, Flex, Heading } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { getProducts } from '../../data/asyncMock';
 import ItemList from '../ItemList/ItemList';
 
@@ -13,17 +13,15 @@ const ItemListContainer = ({ greeting }) => {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(products);
-
   return (
-    <Box mt={5} p={35}>
-    <Flex direction="column" align="center">
-      <Heading className="titulo" mb={6} textAlign="center">
-        {greeting}
-      </Heading>
-      <ItemList products={products} />
-    </Flex>
-  </Box>
+    <Box mt={5} p={10} bgGradient="linear(to-r, teal.300, yellow.400)" borderRadius="md" boxShadow="lg">
+      <Flex direction="column" align="center" justify="center">
+        <Heading className="titulo" mb={6} textAlign="center" color="white">
+          {greeting}
+        </Heading>
+        <ItemList products={products} />
+      </Flex>
+    </Box>
   );
 };
 
