@@ -1,12 +1,30 @@
-import {Heading,Flex} from '@chakra-ui/react'
-import React from 'react'
-import './ItemListContainer.css'
-const ItemListContainer = ({greeting}) => {
-  return (
-    <Flex justify={'center'} align={'center'}> 
-      <Heading className='titulo'>{greeting}</Heading>
-    </Flex>
-  )
-}
+import { Heading, Flex, Box } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import './ItemListContainer.css';
+import { getProducts } from '../../data/asyncMock';
+import ItemList from '../ItemList/ItemList';
 
-export default ItemListContainer
+const ItemListContainer = ({ greeting }) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts()
+      .then((res) => setProducts(res))
+      .catch((error) => console.log(error));
+  }, []);
+
+  console.log(products);
+
+  return (
+    <Box mt={5} p={35}>
+    <Flex direction="column" align="center">
+      <Heading className="titulo" mb={6} textAlign="center">
+        {greeting}
+      </Heading>
+      <ItemList products={products} />
+    </Flex>
+  </Box>
+  );
+};
+
+export default ItemListContainer;

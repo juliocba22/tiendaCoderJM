@@ -16,7 +16,7 @@ import {
 import {FaChevronDown} from 'react-icons/fa'
 const NavBar = () => {
   return (
-    <Flex  className="navbar" h={'10vh'} w={'100%'} justify={'space-between'} align={'center'} backgroundColor={'#55868C'}>
+    <Flex  className="navbar"  p='10px' h={'10vh'} w={'100%'} justify={'space-between'} align={'center'} backgroundColor={'#55868C'}>
       <Heading fontSize={'xl'}  m={2}>Logo</Heading>
        <Menu>
             <MenuButton as={Button} rightIcon={<FaChevronDown />}>
@@ -30,7 +30,7 @@ const NavBar = () => {
               <MenuItem>Attend a Workshop</MenuItem>
             </MenuList>
         </Menu>
-            <CartWidget />
+            <CartWidget stock='30' />
     </Flex>
     
   )
