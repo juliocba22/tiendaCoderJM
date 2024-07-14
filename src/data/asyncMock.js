@@ -21,7 +21,7 @@ export const productos = [
   },
   {
     id: 3,
-    nombre: "Pijama Totoro",
+    nombre: "Pijama Totorossssssssssss",
     precio: 8900,
     categoria: "Pijamas",
     stock: 5,

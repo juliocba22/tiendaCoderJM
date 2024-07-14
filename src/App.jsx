@@ -22,6 +22,8 @@ function App() {
                    <Route path="/" element={<Home />} />
                    <Route path="/categorias/:categoryId" element={<ItemListPage />} />
                    <Route path="/producto/:productId" element={<ItemDetailPage />} />
+                   <Route path="/cart" element={<Cart />} />
+                   <Route path="/checkout" element={<Checkout />} />
                    <Route path="*" element={<NotFound />} />
                </Routes>
 
@@ -37,7 +39,7 @@ const Home = () => (
 
 const ItemListPage = () => {
    let { categoryId } = useParams();
-   return <ItemListContainer greeting={`Productos de la categoría ${categoryId}`} />;
+   return <ItemListContainer greeting={`Productos de la categoría ${categoryId}`} categoryId={categoryId}  />;
 };
 
 const ItemDetailPage = () => {

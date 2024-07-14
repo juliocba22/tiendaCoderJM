@@ -2,15 +2,34 @@ import React, { useEffect, useState } from 'react';
 import { Box, Flex, Heading, Text, Button, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { getProductById } from '../../data/asyncMock'; // Ajustar según tu método para obtener un producto por ID
-
+import { db } from '../../config/firebase';
+import { collection, query, where, getDocs, doc , getDoc } from 'firebase/firestore';
 const ItemDetailContainer = ({ productId }) => {
     const [product, setProduct] = useState(null);
 
-    useEffect(() => {
+    /*useEffect(() => {
         getProductById(productId) // Implementa esta función en tu archivo de datos
             .then((res) => setProduct(res))
             .catch((error) => console.log(error));
-    }, [productId]);
+    }, [productId]);*/
+
+    useEffect(() => {
+        const getData = async()=>{
+            const queryRef=doc(db,'productos',productId)
+console.log('------------------------')
+
+            const response = await getDoc(queryRef)
+
+            const newItem = {
+                ...response.data(),id:response.id
+            }
+            console.log(response.data)
+        
+            setProduct(newItem)
+           // setLoading(true)
+        }
+        getData()
+    }, [ ]);
 
     return (
         <Box mt={5} p={10} bgGradient="linear(to-r, teal.300, yellow.400)" borderRadius="md" boxShadow="lg">

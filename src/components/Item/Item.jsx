@@ -72,7 +72,7 @@ const Item = ({ id, nombre, precio, img, categoria, stock, descripcion }) => {
                             $199
                         </Text>
                     </Stack>
-                    <Button mt={4} size="sm" colorScheme="teal">
+                    <Button mt={4} size="sm" >
                         <Link to={`/producto/${id}`} style={{ textDecoration: 'none', color: 'white' }}>
                             Ver detalle
                         </Link>
