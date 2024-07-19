@@ -1,28 +1,34 @@
-import React, { useState } from 'react';
+// src/components/NavBar/NavBar.js
+import React, { useContext,useState } from 'react';
 import { Box, Flex, Heading } from '@chakra-ui/react';
 import CartWidget from '../CartWidget/CartWidget';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom';
+import Context from '../../context/CartContext';
 
 const NavBar = () => {
-  const navigate = useNavigate(); // Obtiene el objeto navigate
-
+  const navigate = useNavigate();
+  const { stock } = useContext(Context);
   const [categorias, setCategorias] = useState([
     { id: 0, nombre: 'Seleccione una categoría' },
     { id: 1, nombre: 'Pijamas' },
     { id: 2, nombre: 'Remeras' },
   ]);
 
-  const handleCategoriaClick = (categoryId) => {
+  const handleCategoriaClick = async (categoryId) => {
     if (categoryId === 'Seleccione una categoría') {
-      navigate(`/`); // Navega a la ruta para mostrar todos los productos
+      navigate(`/categorias/${categoryId}`);
     } else {
       const categoriaSeleccionada = categorias.find((c) => c.nombre === categoryId);
       if (categoriaSeleccionada) {
         navigate(`/categorias/${categoriaSeleccionada.nombre}`);
       } else {
-        navigate(`/`); // Manejo adicional para garantizar que al no encontrar coincidencia, muestre todos los productos
+        navigate(`/productos`);
       }
     }
+  };
+
+  const handleCartClick = () => {
+    navigate('/carrito');
   };
 
   return (
@@ -44,7 +50,9 @@ const NavBar = () => {
           </select>
         </Flex>
       </Box>
-      <CartWidget stock="30" />
+      <Box onClick={handleCartClick} cursor="pointer">
+        <CartWidget stock={stock} />
+      </Box>
     </Flex>
   );
 };

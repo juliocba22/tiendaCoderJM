@@ -1,6 +1,7 @@
+// src/components/ItemList/ItemList.jsx
 import React from 'react';
-import Item from '../Item/Item';
 import { Box, Flex } from '@chakra-ui/react';
+import Item from '../Item/Item';
 
 const ItemList = ({ products }) => {
     return (

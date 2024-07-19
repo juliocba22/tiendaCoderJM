@@ -10,25 +10,29 @@ import {BrowserRouter , Route , Routes} from 'react-router-dom'
 import { useParams } from 'react-router-dom';
  
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-
+import { CartContextProvider } from './context/CartContext'
+import CartPage from './components/CartPage/CartPage';
+import InvoicePage from './components/InvoicePage/InvoicePage'; // Importa el nuevo componente
 function App() {
-   const [count, setCount] = useState(0);
+  
 
    return (
        <ChakraProvider>
+         <CartContextProvider>
            <BrowserRouter>
                <NavBar />
                <Routes>
                    <Route path="/" element={<Home />} />
                    <Route path="/categorias/:categoryId" element={<ItemListPage />} />
                    <Route path="/producto/:productId" element={<ItemDetailPage />} />
-                   <Route path="/cart" element={<Cart />} />
-                   <Route path="/checkout" element={<Checkout />} />
+                   <Route path="/carrito" element={<CartPage />} />
+                   <Route path="/factura" element={<InvoicePage />} /> 
                    <Route path="*" element={<NotFound />} />
                </Routes>
 
-               <ItemCount />
+             
            </BrowserRouter>
+           </CartContextProvider>
        </ChakraProvider>
    );
 }

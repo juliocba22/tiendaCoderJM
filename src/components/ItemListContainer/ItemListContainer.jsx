@@ -1,9 +1,9 @@
+// src/components/ItemListContainer/ItemListContainer.jsx
 import React, { useEffect, useState } from 'react';
 import { Box, Flex, Heading } from '@chakra-ui/react';
-import { getProducts } from '../../data/asyncMock'; // Asegúrate de importar solo lo necesario para evitar errores
-import ItemList from '../ItemList/ItemList';
 import { db } from '../../config/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import ItemList from '../ItemList/ItemList';
 
 const ItemListContainer = ({ greeting, categoryId }) => {
   const [products, setProducts] = useState([]);
@@ -12,34 +12,16 @@ const ItemListContainer = ({ greeting, categoryId }) => {
   useEffect(() => {
     setLoading(true);
     const getData = async () => {
-    
-      const collecion = collection(db, 'productos');
-       console.log("CONTAINER")
-      const  queryRef =!categoryId? collecion : query(collecion, where('categoria', '==', categoryId));
-       console.log(categoryId)
-const response = await getDocs(queryRef)
-const productos = response.docs.map((doc) => { 
-                  const newItems = {
-                    ...doc.data(),id:doc.id
-                  }
-                  return newItems;
-                })
-setProducts(productos)
-setLoading(false)
+      const collectionRef = collection(db, 'productos');
+      const queryRef = !categoryId ? collectionRef : query(collectionRef, where('categoria', '==', categoryId));
+      
+      const response = await getDocs(queryRef);
+      const productos = response.docs
+        .map((doc) => ({ ...doc.data(), id: doc.id }))
+        .filter(product => product.stock > 0); // Filtrar productos con stock mayor a 0
 
- 
-      /*try {
-        const querySnapshot = await getDocs(queryRef);
-        //const productsData = querySnapshot.docs.map((doc) => doc.data());
-        const newItems = {
-          ...querySnapshot.data,id:querySnapshot.id
-      }
-        setProducts(newItems);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      } finally {
-        setLoading(false);
-      }*/
+      setProducts(productos);
+      setLoading(false);
     };
 
     getData();
